@@ -104,6 +104,7 @@ h3 {
 
 #header .headline {
 	display: inline-block;
+	font-family: "Palatino Linotype";
 	position: relative;
 	vertical-align: middle;
 	margin-top: -20px;
@@ -111,7 +112,6 @@ h3 {
 
 #header h1 {
 	color: rgb(94, 69, 147);
-	font-family: "Palatino Linotype";
 	font-size: 36px;
 	display: inline-block;
 	font-weight: normal;
@@ -125,11 +125,32 @@ h3 {
 	color: rgb(137,100,69);
 	padding: 2px 0;
 	text-transform: uppercase;
-	font-family: "Palatino Linotype";
 	margin-top: 0px;
 	font-size: 20px;
+	border-bottom: 1px solid gold;
+}
+#header h3 {
+	font-size: 16px;
+	text-indent: 10px;
+	margin-top: 10px;
+}
+.inverted#header {
+	border-top: 2px solid gold;
+	background: rgb(94, 69, 147);
+}
+.inverted#header h1 {
+	color: white;
+	text-shadow: 1px 1px black;
 }
 
+.inverted#header h2 {
+	color: rgb(199,156,110);
+	background: rgb(94, 69, 147);
+	text-shadow: 1px 1px black;
+}
+.inverted#header h3 {
+	color: white;
+}
 /* Navigation
    ----------------------------------------------------*/
 
@@ -162,15 +183,15 @@ h3 {
 	color: rgb(94, 69, 147);
 }
 
-#navigation .login_link a {
-	color: #005C85;
-	font-weight: bold;
+.inverted#header #navigation ul li {
+	background-color: rgb(56, 40, 84);
 }
-
-#navigation .login_link a:hover {
-	color: #63A7C4;
+.inverted#header #navigation ul li:hover {
+	background-color: gold;
 }
-
+.inverted#header #navigation ul li a:hover {
+	color: rgb(56, 40, 84);
+}
 
 
 /* Content

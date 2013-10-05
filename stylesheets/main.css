@@ -65,15 +65,16 @@ h3 {
    ----------------------------------------------------*/
 
 #header {
-	background: #2b2b2b; /* Old browsers */
-	background: -moz-linear-gradient(top,  #2b2b2b 0%, #6b6b6b 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b2b2b), color-stop(100%,#6b6b6b)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #2b2b2b 0%,#6b6b6b 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#6b6b6b',GradientType=0 ); /* IE6-9 */
-	border-bottom: 3px solid #ae0000;
+	background: #fff;
+	/*
+	background: -moz-linear-gradient(top,  #2b2b2b 0%, #6b6b6b 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b2b2b), color-stop(100%,#6b6b6b)); 
+	background: -webkit-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); 
+	background: -o-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); 
+	background: -ms-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%);
+	background: linear-gradient(to bottom,  #2b2b2b 0%,#6b6b6b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#6b6b6b',GradientType=0 );*/
+	border-bottom: 3px solid gold;
 }   
    
 #header .content {
@@ -92,7 +93,7 @@ h3 {
 }
 #header #logo {
 	margin: 0 auto;
-	height: 150px;
+	height: 200px;
 	background-size: contain;
 	display: inline-block;
 	vertical-align: middle;
@@ -109,47 +110,40 @@ h3 {
 }
 
 #header h1 {
-	color: #fff;
+	color: rgb(94, 69, 147);
 	font-family: "Palatino Linotype";
-	font-size: 26px;
+	font-size: 36px;
 	display: inline-block;
-	font-variant: small-caps;
-	text-transform: capitalize;
 	font-weight: normal;
-	text-shadow: 1px 1px black;
+	text-transform: uppercase;
 }
 #header span {
 	color: gold;
 }
 #header h2 {
-	background-color: #ae0000;
-	border: 1px solid black;
-	border-top: none;
-	color: white;
+	background-color: #fff;
+	color: rgb(137,100,69);
 	padding: 2px 0;
-	position: absolute;
-	width: 600px;
-	left: -100px;
-	text-indent: 120px;
-	height: 20px;
-	border-radius: 30px;
+	text-transform: uppercase;
+	font-family: "Palatino Linotype";
+	margin-top: 0px;
+	font-size: 20px;
 }
 
 /* Navigation
    ----------------------------------------------------*/
 
 #navigation {
-	margin-top: 10px;
 }
 
 #navigation ul li {
-	background-color: #202020;
-	border: 1px solid white;
+	background-color: rgb(94, 69, 147);
+	border: 1px solid gold;
 	border-bottom: 0px;
 	display: inline-block;
 	list-style-type: none;
 	text-align: center;
-	width: 19%; /*Will need to change as list elements grow; could also use javascript */
+	width: 16%; /*Will need to change as list elements grow; could also use javascript */
 }
 
 #navigation ul li a {
@@ -161,11 +155,11 @@ h3 {
 	width: 100%;
 }
 #navigation ul li:hover {
-	background-color: #ae0000;
+	background-color: gold;
 }
 
 #navigation ul li a:hover {
-	color: gold;
+	color: rgb(94, 69, 147);
 }
 
 #navigation .login_link a {

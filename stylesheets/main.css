@@ -77,20 +77,25 @@ h3 {
 	border-bottom: 3px solid gold;
 }   
    
-#header .content {
+.content {
 	max-width: 73.125em;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px 15px 0 15px;
+	
 	*zoom: 1;
 }
-#header .content:before, #header .content:after {
+.content:before, .content:after {
   content: " ";
   display: table;
 }
-#header .content:after {
+.content:after {
   clear: both;
 }
+
+#header .content {
+	padding: 10px 15px 0 15px;
+}
+
 #header #logo {
 	margin: 0 auto;
 	height: 200px;
@@ -246,7 +251,57 @@ h3 {
 	width: 200px;
 }
 
+/* RUSH */
 
+#blocks {
+	position: relative;
+}
+
+#blocks div {
+	float: left;
+	position: relative;
+	width: 50%;
+}
+
+#blocks div .dummy {
+	padding-top: 100%;
+	width: 100%;
+}
+
+#blocks div .image {
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+}
+
+#blocks #leadership .image{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258045_original.jpg) no-repeat;
+}
+#blocks #leadership .image:hover{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258046_original.jpg) no-repeat;
+}
+
+#blocks #scholarship .image{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258046_original.jpg) no-repeat;
+}
+#blocks #scholarship .image:hover{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258043_original.jpg) no-repeat;
+}
+
+#blocks #fellowship .image{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258043_original.jpg) no-repeat;
+}
+#blocks #fellowship .image:hover{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258044_original.jpg) no-repeat;
+}
+#blocks #zeta-lambda .image{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258044_original.jpg) no-repeat;
+}
+#blocks #zeta-lambda .image:hover{
+	background: url(http://s3.amazonaws.com/os_extranet_images/258045_original.jpg) no-repeat;
+}
 
 /* Modules
    ----------------------------------------------------*/

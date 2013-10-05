@@ -1,0 +1,368 @@
+/*	Three-Column Template for UCLA
+		Updated: 01/27/2011
+   	----------------------------------------------------*/
+
+/*	CONTENTS:
+		CSS Reset
+		Generic 
+		Header
+		Navigation
+		Content
+		Sidebar
+		Footer
+		Modules
+*/
+
+/* CSS Reset
+   ----------------------------------------------------*/
+h1, h2, h3, h4, h5, h6, p, ul, li {
+	font-weight: normal;
+	margin: 0;
+	padding:0;
+}
+
+a img {
+	border: 0 none;
+}
+
+/* Generic
+   ----------------------------------------------------*/
+body {
+	font-family: 'Lucida Grande', Verdana, Arial, sans-serif;
+	font-size: 13px;
+	margin: 0px;
+	padding: 0px;
+}
+
+p {
+	font-size: 12px;
+	line-height: 1.5em;
+}
+
+a {
+	color: #005C85;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+h2, h3, h4 {
+	margin-top: 15px;
+}
+
+h2 {
+	font-size: 130%;
+}
+
+h3 {
+	font-size: 110%;
+}
+
+/* Header
+   ----------------------------------------------------*/
+
+#header {
+	background: #2b2b2b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #2b2b2b 0%, #6b6b6b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b2b2b), color-stop(100%,#6b6b6b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #2b2b2b 0%,#6b6b6b 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #2b2b2b 0%,#6b6b6b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#6b6b6b',GradientType=0 ); /* IE6-9 */
+	border-bottom: 3px solid #ae0000;
+}   
+   
+#header .content {
+	max-width: 73.125em;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 15px 0 15px;
+	*zoom: 1;
+}
+#header .content:before, #header .content:after {
+  content: " ";
+  display: table;
+}
+#header .content:after {
+  clear: both;
+}
+#header #logo {
+	margin: 0 auto;
+	height: 150px;
+	background-size: contain;
+	display: inline-block;
+	vertical-align: middle;
+	width: 150px;
+	z-index: 100;
+	position: relative;
+}
+
+#header .headline {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	margin-top: -20px;
+}
+
+#header h1 {
+	color: #fff;
+	font-family: "Palatino Linotype";
+	font-size: 26px;
+	display: inline-block;
+	font-variant: small-caps;
+	text-transform: capitalize;
+	font-weight: normal;
+	text-shadow: 1px 1px black;
+}
+#header span {
+	color: gold;
+}
+#header h2 {
+	background-color: #ae0000;
+	border: 1px solid black;
+	border-top: none;
+	color: white;
+	padding: 2px 0;
+	position: absolute;
+	width: 600px;
+	left: -100px;
+	text-indent: 120px;
+	height: 20px;
+	border-radius: 30px;
+}
+
+/* Navigation
+   ----------------------------------------------------*/
+
+#navigation {
+	margin-top: 10px;
+}
+
+#navigation ul li {
+	background-color: #202020;
+	border: 1px solid white;
+	border-bottom: 0px;
+	display: inline-block;
+	list-style-type: none;
+	text-align: center;
+	width: 19%; /*Will need to change as list elements grow; could also use javascript */
+}
+
+#navigation ul li a {
+	color: white;
+	display: block;
+	font-size: 14px;
+	padding: 8px 0px;
+	text-decoration: none;
+	width: 100%;
+}
+#navigation ul li:hover {
+	background-color: #ae0000;
+}
+
+#navigation ul li a:hover {
+	color: gold;
+}
+
+#navigation .login_link a {
+	color: #005C85;
+	font-weight: bold;
+}
+
+#navigation .login_link a:hover {
+	color: #63A7C4;
+}
+
+
+
+/* Content
+   ----------------------------------------------------*/
+
+#content_wrapper {
+	margin: 0 auto;
+	padding-top: 20px;
+	width: 960px;
+}
+
+
+
+/* Footer
+   ----------------------------------------------------*/
+
+#footer {
+	clear: both;
+	margin-top: 40px;
+	width: 100%;
+}
+#footer #footer_container {
+	margin: 0 auto;
+	padding: 15px;
+	width: 960px;
+}
+#footer #text {
+	color: #4e4e4e;
+	font-size: 10px;
+	line-height: 1.5em;
+	margin: 0 auto;
+}
+#footer #text h5 {
+	color: #005C85;
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+#poweredby {
+	float: right;
+}
+
+#poweredby a {
+	background-image: url(http://s3.amazonaws.com/os_extranet_images/63239_original.png);
+	background-repeat: no-repeat;
+	display: block;
+	height: 36px;
+	margin: 0 auto;
+	overflow: hidden;
+	text-indent: -9999em;
+	width: 200px;
+}
+
+
+
+/* Modules
+   ----------------------------------------------------*/
+
+.mini_calendar thead {
+	background: #5E7BA6;
+}
+.mini_cal_nav a {
+	text-decoration: none;
+}
+
+.pod-header {
+	background: #EBEBEB;
+	color: #666666;
+	font-size: 13px;
+	moz-border-radius: 4px;
+}
+.pod-body b {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.new_pod {
+	background: #f4f4f4;
+	border: 1px solid #ccc;
+	margin-bottom: 20px;
+	padding: 5px 10px 20px 20px;
+}
+
+.new_pod_bottom li {
+	list-style-type: none;
+}
+
+.new_pod_bottom li a {
+	background: #e7e7e7;
+	border: 1px solid #6d6d6d;
+	margin-bottom: 10px;
+	padding: 6px;
+	text-decoration: none;
+}
+
+.new_pod_bottom li a:hover {
+	background: #fff;
+	border: 1px solid #6d6d6d;
+	color: #000;
+	padding: 6px;
+}
+
+.pod-body label {
+	font-size: 13px;
+}
+
+.pod-body input, .pod-body textarea {
+	border: 1px solid #ccc;
+	width: 300px;
+}
+
+.button, .submit {
+	background: #e7e7e7;
+	border: 1px solid #6d6d6d;
+	moz-border-radius: 2px;
+	padding: 2px 6px;
+}
+
+#calendar_category select {
+	font-size: 10px;
+	height: 25px;
+	padding: 4px;
+	width: 150px;
+}
+
+.module_news li {
+	list-style-type: none;
+}
+
+#module_forms .form_list_view a {
+	background: #E7E7E7;
+	border: #6d6d6d;
+	font-size: 12px;
+	padding: 3px 8px;
+}
+
+#module_forms .form_page_title {
+	font-size: 14px;
+	margin: 5px;
+}
+#module_forms .form_element {
+	padding: 5px;
+}
+#module_forms #newui_forms_elements .form_wrapper input {
+	margin-top: 8px;
+}
+#module_forms .newui_page_title h1 {
+	font-size: 18px;
+	margin: 5px;
+}
+#module_forms .newui_page_title {
+	background: #005f38;
+	padding: 3px;
+}
+#module_news li {
+	background: #f4f4f4;
+	border-bottom: 1px solid #ccc;
+	list-style-type: none;
+	margin-bottom: 10px;
+}
+#module_forms .form_list_view {
+	font-size: 12px;
+}
+#module_files .pod {
+	margin-top: 10px;
+}
+#content #module_files .newui_page_title h1 {
+	display: none;
+	font-size: 10px;
+}
+
+#module_contact .pod-header {
+	display: none;
+}
+
+/* Modules: Calendar */
+form#calendar_category {
+    margin-left: 0;
+    padding: 0;
+    position: relative;
+    top: 20px;
+    width: 100%;
+}
+
+a.button.right {
+    position: relative;
+    top: -60px;
+}

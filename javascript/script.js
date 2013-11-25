@@ -32,6 +32,8 @@ $(function() {
 		});	
 	}
 	
+	if (window.location.pathname.indexOf('tinas_secret_page') != -1){$('body').click(function() {if ($('body').hasClass('tinas-theme') && $('#why-rush-according-to-Tina').length == 0)$('#os_content').append("<h1 id='why-rush-according-to-Tina'>1. Get the opportunity to meet people for the first time! #rushphisigmapi<br>-as stated by Tina, best little*</h1><p>*as stated by proud asian big</p>");});};
+	
 	var fading_gallery = function(g) {
 		this.$gallery = g;
 		this.image_urls = new Array();
@@ -98,15 +100,67 @@ $(function() {
 	};
 	document.getElementById('slider') && new slider;*/
 	
-	var lightbox = function(l) {
 	
+	
+	var lightbox = function() {
+		this.$lb_backdrop = $('#lightbox-backdrop');
+		this.$lb_body = $('#lightbox-body');
+		this.$lb_image = $('#lightbox-image');
+		this.$lb_element = null;
+		this.$lb_prev = $('.lightbox-nav.prev');
+		this.$lb_next = $('.lightbox-nav.next');
+		this.content = null;
+		this.image_index = 0;
+		this.init();
 	};
 	lightbox.prototype = {
-	
+		init: function() {
+			$('.lightbox-content').on('click',$.proxy(this.show,this));
+			this.$lb_backdrop.click($.proxy(this.close,this));
+			this.$lb_prev.click($.proxy(this.prev,this));
+			this.$lb_next.click($.proxy(this.next,this));
+		},
+		show: function(e) {
+			this.$lb_element = $(e.currentTarget);
+			this.content = this.$lb_element.children();
+			this.$lb_backdrop.show();
+			$('body').css('overflow','hidden');
+			this.set();
+		},
+		set: function() {
+			this.$lb_image.css('background-image', this.content.eq(this.image_index).css('background-image'));
+			this.check_nav();
+		},
+		close: function(e) {
+			if (e.target == e.currentTarget){
+				this.$lb_backdrop.hide();
+				$('body').css('overflow','auto');
+			}
+		},
+		prev: function(e) {
+			this.image_index--;
+			this.set();
+		},
+		next: function(e) {
+			this.image_index++;
+			this.set();
+		},
+		check_nav: function(e) {
+			if (this.image_index == 0) 
+				this.$lb_prev.hide();
+			else
+				this.$lb_prev.show();
+				
+			if (this.image_index == this.content.length - 1) 
+				this.$lb_next.hide();
+			else
+				this.$lb_next.show();
+		},
+		
 	};
-	$('.lightbox-content').each(function() {
-		new lightbox(this);
-	});
+	if ($('.lightbox-content').length > 0) {
+		new lightbox;
+	}
 	
 	/* populate events list */
 	var $events_wrap = $('#events-wrap');

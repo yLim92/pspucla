@@ -70,20 +70,45 @@ h3 {
 #lightbox-backdrop {
 	display: none;
 	height: 100%;
-	width: 100%;
+	width: 70%;
 	top: 0;
 	left: 0;
+	padding: 0 15%;
+	padding-top: 50px;
 	position: fixed;
-	background-color: black;
-	opacity: 0.5;
+	background: rgba(0,0,0,0.9);
 	z-index: 200;
 }
 #lightbox-body {
+	margin: 0 auto;
+	position: relative;
+	opacity: 1.0;
+	height: 480px;
+	width: 780px;
+}
+#lightbox-image {
 	width: 640px;
 	height: 480px;
 	margin: 0 auto;
-	position: relative;
-	margin-top: 50px;
+}
+.lightbox-nav {
+	width: 70px;
+	position: absolute;
+	height: 80px;
+	top: 200px;
+	background: url('http://s3.amazonaws.com/os_extranet_images/269040_original.png');
+	background-repeat: no-repeat;
+	opacity: 0.5;
+	background-size: 150px;
+	background-position: -10px;
+	cursor: pointer;
+}
+.lightbox-nav.next {
+	right: 0;
+	background-position: -70px;
+}
+.lightbox-nav:hover {
+	opacity: 0.8;
 }
 
 /* Header

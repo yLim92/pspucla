@@ -86,11 +86,27 @@ h3 {
 	height: 480px;
 	width: 780px;
 }
-#lightbox-image {
+#lightbox-image-wrap {
 	width: 640px;
 	height: 480px;
 	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
 }
+.lightbox-image {
+	width: inherit;
+	height: inherit;
+	position: absolute;
+}
+.lightbox-image.prev {
+	left: -690px;
+	opacity: 0.25;
+}
+.lightbox-image.next {
+	left: 690px;
+	opacity: 0.25;
+}
+
 .lightbox-nav {
 	width: 70px;
 	position: absolute;

@@ -112,6 +112,7 @@ $(function() {
 		this.$lb_element = null;
 		this.$lb_prev = $('.lightbox-nav.prev');
 		this.$lb_next = $('.lightbox-nav.next');
+		this.$lb_caption = $('#lightbox-caption p');
 		
 		this.content = null;
 		this.image_index = 0;
@@ -134,14 +135,15 @@ $(function() {
 		},
 		show: function(e) {
 			this.$lb_element = $(e.currentTarget);
-			this.content = this.$lb_element.children();
+			this.content = this.$lb_element.children('div');
 			this.$lb_backdrop.show();
 			this.$lb_image_main.css('background-image', this.content.eq(this.image_index).css('background-image'));
+			this.$lb_caption.html(this.content.eq(this.image_index).data().caption);
 			$('body').css('overflow','hidden');	
 			this.set();
 		},
 		set: function() {
-			
+			this.$lb_caption.html(this.content.eq(this.image_index).data().caption);
 			if (this.image_index == 0) 
 				this.$lb_prev.hide();
 			else {
@@ -215,6 +217,7 @@ $(function() {
 	//Check for photo module in gallery page; create lightbox-content instances if so
 	if ($('#photos_module').hide().length > 0) {
 		$('.album_name a').each(function(index) { 
+			var album_name = $(this).html();
 			var ajax_url = $(this).attr('onclick').split("url:'")[1].split("'}")[0];
 			$('#gallery-wrap').append("<div class='gallery lightbox-content'></div>");
 			$.ajax({
@@ -225,10 +228,11 @@ $(function() {
 					
 					$('#photo_albums').children('a').each(function(index){
 						if (index==0)
-							gallery.append("<div class='preview-image' style='background-image: url("+$(this).attr('href')+");' </div>");
+							gallery.append("<div class='preview-image' style='background-image: url("+$(this).attr('href')+");' data-caption='"+$(this).attr('title')+"' </div>");
 						else
-							gallery.append("<div style='background-image: url("+$(this).attr('href')+");' </div>");
+							gallery.append("<div style='background-image: url("+$(this).attr('href')+");' data-caption='"+$(this).attr('title')+"' </div>");
 					});
+					gallery.append("<h1>"+album_name+"</h1>");
 				}, 
 				type:'post', 
 				url: ajax_url
@@ -238,6 +242,15 @@ $(function() {
 	if ($('.lightbox-content').length > 0) {
 		new lightbox;
 	}
+	
+	//Silly fade-in transition effect because I don't trust webkit transition...
+	$('.lightbox-content').hover(function() {
+			$(this).stop();
+			$(this).animate({ opacity: 0.8 },300);
+		},function() {
+			$(this).stop();
+			$(this).animate( { opacity: 1.0 },300);
+	});
 	
 	/* populate events list */
 	var $events_wrap = $('#events-wrap');

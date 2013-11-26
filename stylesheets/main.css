@@ -86,12 +86,22 @@ h3 {
 	height: 480px;
 	width: 780px;
 }
+
 #lightbox-image-wrap {
 	width: 640px;
 	height: 480px;
 	margin: 0 auto;
 	overflow: hidden;
 	position: relative;
+}
+#lightbox-caption {
+	min-height: 10px;
+	color: white;
+	text-align: center;
+	margin-top: 10px;
+}
+#lightbox-caption p {
+	font-size: 14px;
 }
 .lightbox-image {
 	width: inherit;
@@ -646,9 +656,11 @@ body.ye-olde-psp #events-wrap p {
 }
 
 .gallery {
-	height: 300px;
-	width: 400px;
 	cursor: pointer;
+	border: 1px solid black;
+	display: inline-block;
+	margin-right: 10px;
+	margin-top: 10px;
 }
 
 .gallery div {
@@ -657,8 +669,16 @@ body.ye-olde-psp #events-wrap p {
 
 .gallery div.preview-image {
 	display: block;
-	height: inherit;
+	height: 210px;
+	width: 280px;
 	background-size: cover;
+	border: 5px solid white;
+	background-repeat: no-repeat;
+}
+.gallery h1 {
+	border-top: 1px solid black;
+	text-align: center;
+	font-family: "palatino linotype";
 }
 
 

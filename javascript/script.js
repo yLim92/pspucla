@@ -244,7 +244,7 @@ $(function() {
 	}
 	
 	//Silly fade-in transition effect because I don't trust webkit transition...
-	$('.lightbox-content').hover(function() {
+	$('.lightbox-content, #block-container .block').hover(function() {
 			$(this).stop();
 			$(this).animate({ opacity: 0.8 },300);
 		},function() {

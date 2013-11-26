@@ -11,9 +11,10 @@ $(function() {
 			backgroundColor: "gold"
 		});
 	}
-	if (window.location.pathname.indexOf('rush') != -1)
+	if (window.location.pathname.indexOf('rush') != -1){
 		$('body').addClass('ye-olde-psp');
 		$('html').css('-webkit-filter','grayscale(25%)')
+	}
 	$('#header').css({
 		visibility: 'visible'
 	});
@@ -111,10 +112,11 @@ $(function() {
 		this.$lb_element = null;
 		this.$lb_prev = $('.lightbox-nav.prev');
 		this.$lb_next = $('.lightbox-nav.next');
+		
 		this.content = null;
 		this.image_index = 0;
-		this.animating = false;
 		this.slide_value = $('.lightbox-image.next').css('left').split('px')[0]; //get value w/out 'px'
+		this.animate_speed = 500;
 		this.init();
 	};
 	lightbox.prototype = {
@@ -123,6 +125,12 @@ $(function() {
 			this.$lb_backdrop.click($.proxy(this.close,this));
 			this.$lb_prev.click($.proxy(this.prev,this));
 			this.$lb_next.click($.proxy(this.next,this));
+			$('body').on('keydown',$.proxy(function(e) {
+				if (e.keyCode == 37 && this.image_index != 0)
+					this.prev();
+				else if (e.keyCode == 39 && this.image_index != this.content.length - 1)
+					this.next();
+			},this));
 		},
 		show: function(e) {
 			this.$lb_element = $(e.currentTarget);
@@ -157,42 +165,76 @@ $(function() {
 		},
 		prev: function(e) {
 			this.image_index--;
-
+			this.$lb_image_main.animate({
+				opacity: 0,
+				left: "+"+this.slide_value,
+			}, this.animate_speed, $.proxy(function(){},this));
+			this.$lb_image_prev.animate({
+				opacity: 1,
+				left: "0",
+			}, this.animate_speed, function() {});
+			//this.set();
+			this.$lb_image_next.remove();
+			this.$lb_image_main.removeClass('main');
+			this.$lb_image_main.addClass('next');
+			this.$lb_image_next = this.$lb_image_main;
+			this.$lb_image_prev.removeClass('prev');
+			this.$lb_image_prev.addClass('main');
+			this.$lb_image_main = this.$lb_image_prev;
+			$('#lightbox-image-wrap').append("<div class='lightbox-image prev'></div>");
+			this.$lb_image_prev = $('.lightbox-image.prev');
 			this.set();
 		},
 		next: function(e) {
-			//if (this.animating == false) {
-				this.animating = true;
-				this.image_index++;
-				this.$lb_image_main.animate({
-					opacity: 0.25,
-					left: "-"+this.slide_value,
-				}, 1000, $.proxy(function(){
-					
-					this.animating = false;
-					},this));
-				this.$lb_image_next.animate({
-					opacity: 1,
-					left: "0",
-				}, 1000, function() {});
-				//this.set();
-				this.$lb_image_prev.remove();
-				this.$lb_image_main.removeClass('main');
-				this.$lb_image_main.addClass('prev');
-				this.$lb_image_prev = this.$lb_image_main;
-				this.$lb_image_next.removeClass('next');
-				this.$lb_image_next.addClass('main');
-				this.$lb_image_main = this.$lb_image_next;
-				$('#lightbox-image-wrap').append("<div class='lightbox-image next'></div>");
-				this.$lb_image_next = $('.lightbox-image.next');
-				this.set(); 
+			this.image_index++;
+			this.$lb_image_main.animate({
+				opacity: 0,
+				left: "-"+this.slide_value,
+			}, this.animate_speed, $.proxy(function(){},this));
+			this.$lb_image_next.animate({
+				opacity: 1,
+				left: "0",
+			}, this.animate_speed, function() {});
+			//this.set();
+			this.$lb_image_prev.remove();
+			this.$lb_image_main.removeClass('main');
+			this.$lb_image_main.addClass('prev');
+			this.$lb_image_prev = this.$lb_image_main;
+			this.$lb_image_next.removeClass('next');
+			this.$lb_image_next.addClass('main');
+			this.$lb_image_main = this.$lb_image_next;
+			$('#lightbox-image-wrap').append("<div class='lightbox-image next'></div>");
+			this.$lb_image_next = $('.lightbox-image.next');
+			this.set(); 
 			
 		},
 		check_nav: function(e) {
 			
-		},
-		
+		},	
 	};
+	//Check for photo module in gallery page; create lightbox-content instances if so
+	if ($('#photos_module').hide().length > 0) {
+		$('.album_name a').each(function(index) { 
+			var ajax_url = $(this).attr('onclick').split("url:'")[1].split("'}")[0];
+			$('#gallery-wrap').append("<div class='gallery lightbox-content'></div>");
+			$.ajax({
+				data:'', 
+				success: function(request){ 
+					$('#photos_module').html(request);
+					var gallery = $('.lightbox-content.gallery').eq(index);
+					
+					$('#photo_albums').children('a').each(function(index){
+						if (index==0)
+							gallery.append("<div class='preview-image' style='background-image: url("+$(this).attr('href')+");' </div>");
+						else
+							gallery.append("<div style='background-image: url("+$(this).attr('href')+");' </div>");
+					});
+				}, 
+				type:'post', 
+				url: ajax_url
+			});
+		});
+	}
 	if ($('.lightbox-content').length > 0) {
 		new lightbox;
 	}
@@ -213,5 +255,6 @@ $(function() {
 			);
 		}
 	}
+	
 	$('body').show();
 });

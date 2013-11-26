@@ -97,6 +97,7 @@ h3 {
 	width: inherit;
 	height: inherit;
 	position: absolute;
+	background-size: cover;
 }
 .lightbox-image.prev {
 	left: -690px;
@@ -640,6 +641,10 @@ body.ye-olde-psp #events-wrap p {
 
 /*  GALLERY  */
 
+#gallery-wrap {
+	min-width: 500px;
+}
+
 .gallery {
 	height: 300px;
 	width: 400px;
@@ -653,7 +658,7 @@ body.ye-olde-psp #events-wrap p {
 .gallery div.preview-image {
 	display: block;
 	height: inherit;
-	background-size: contain;
+	background-size: cover;
 }
 
 
